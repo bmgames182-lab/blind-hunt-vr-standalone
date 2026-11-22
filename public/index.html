@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090c0a">
+  <meta name="description" content="Blind Hunt VR is an asymmetrical multiplayer horror game for Meta Quest. Hunt by echolocation or stay quiet and survive the Backrooms.">
+  <meta property="og:title" content="Blind Hunt VR | Every sound gives you away">
+  <meta property="og:description" content="Play a blind monster that sees through sound, or make it out of the Backrooms as a gorilla.">
+  <meta property="og:type" content="website">
+  <title>Blind Hunt VR — Every sound gives you away</title>
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="preload" href="assets/display-900.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="main.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <div class="shell header-inner">
+      <a class="brand" href="#top" aria-label="Blind Hunt VR home">
+        <span class="brand-mark" aria-hidden="true"><i></i></span>
+        <span>BLIND HUNT<span class="brand-vr">VR</span></span>
+      </a>
+      <button class="menu-toggle" type="button" aria-controls="navigation" aria-expanded="false" hidden>Menu <span aria-hidden="true">+</span></button>
+      <nav id="navigation" class="navigation" aria-label="Main navigation">
+        <a href="#hunt">The Hunt</a>
+        <a href="#signal">Simulator</a>
+        <a href="#download">Get the Game</a>
+      </nav>
+      <a class="button button-outline header-download" href="https://sxenolith-del.itch.io/blind-hunt-vr2">Get on Quest <span aria-hidden="true">↗</span></a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-image" aria-hidden="true">
+        <img src="assets/backrooms.webp" alt="" width="1536" height="1024" fetchpriority="high">
+      </div>
+      <div class="hero-shade" aria-hidden="true"></div>
+      <canvas id="ambient" class="ambient" aria-hidden="true"></canvas>
+      <div class="hero-scan" aria-hidden="true"></div>
+      <div class="shell hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow hero-kicker"><span class="status-light"></span> ASYMMETRIC VR HORROR</p>
+          <h1 id="hero-title"><span>BLIND</span><span class="acid">HUNT<span class="hero-vr">VR</span></span></h1>
+          <p class="hero-tagline">Every sound gives you away.</p>
+          <p class="hero-description">One blind monster. A group of gorillas. And a labyrinth that turns every footstep into a clue.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="https://sxenolith-del.itch.io/blind-hunt-vr2">Download for Quest <span aria-hidden="true">↗</span></a>
+            <a class="button button-outline" href="#signal"><span class="mini-radar" aria-hidden="true"></span> Test Echolocation</a>
+          </div>
+        </div>
+        <div class="hero-instrument" aria-hidden="true">
+          <span class="instrument-cross">+</span>
+          <div class="waveform"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          <div><span>ACOUSTIC CONTACT</span><strong id="contact-readout">SIGNAL DETECTED</strong></div>
+        </div>
+      </div>
+      <div class="hero-corners shell" aria-hidden="true"><span></span><span></span></div>
+    </section>
+
+    <div class="spec-band" aria-label="Game features">
+      <div class="shell spec-grid">
+        <span><b aria-hidden="true">◈</b> META QUEST</span>
+        <span><b aria-hidden="true">⌁</b> ONLINE MULTIPLAYER</span>
+        <span><b aria-hidden="true">◎</b> ECHOLOCATION</span>
+        <span><b aria-hidden="true">⌖</b> PROXIMITY VOICE CHAT</span>
+      </div>
+    </div>
+
+    <section class="shell section hunt" id="hunt" aria-labelledby="hunt-title">
+      <div class="section-heading reveal">
+        <div>
+          <p class="eyebrow"><span class="rule"></span> THE HUNT</p>
+          <h2 id="hunt-title">HUNT OR <em>HIDE.</em></h2>
+        </div>
+        <p>Pick a side in the Backrooms. What helps one player survive gives the other something to track.</p>
+      </div>
+      <div class="roles">
+        <article class="role-card role-hunter reveal">
+          <div class="role-art" aria-hidden="true">
+            <div class="role-scope"><i></i><i></i><i></i><i></i></div>
+            <div class="role-coords">HUNTER VIEW <span>◈</span></div>
+          </div>
+          <div class="role-copy">
+            <span class="role-label"><span class="status-light"></span> THE HUNTER</span>
+            <h3>THE HOLLOW</h3>
+            <p>Send out a click and listen for the return. Track footsteps and heartbeats, crawl along walls, and smash lamps to leave the others in the dark.</p>
+          </div>
+        </article>
+        <article class="role-card role-runner reveal">
+          <div class="role-art" aria-hidden="true">
+            <div class="role-coords">SURVIVOR VIEW <span>⌁</span></div>
+            <div class="heartbeat"><span></span></div>
+          </div>
+          <div class="role-copy">
+            <span class="role-label"><span class="status-light"></span> THE SURVIVORS</span>
+            <h3>THE GORILLAS</h3>
+            <p>Move through the Backrooms with your crew. Keep your voice down and watch where you step. The Hollow can hear you before you see it.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="signal-section" id="signal" aria-labelledby="signal-title">
+      <div class="shell section signal-grid">
+        <div class="signal-copy reveal">
+          <p class="eyebrow"><span class="rule"></span> ECHO SIMULATOR</p>
+          <h2 id="signal-title">SEE WITH <em>SOUND.</em></h2>
+          <p>Send a pulse into the dark. Its return briefly reveals the layout and anything moving through it.</p>
+          <button class="button button-primary" id="ping" type="button" disabled>Send Echo Pulse <span aria-hidden="true">◎</span></button>
+          <label class="sound-toggle"><input type="checkbox" id="pulse-audio" disabled> <span>Play pulse sound</span></label>
+          <noscript><p>Enable JavaScript to use the echo simulator.</p></noscript>
+        </div>
+
+        <div class="scanner reveal">
+          <div class="scanner-top">
+            <span><i class="status-light"></i> SONAR DISPLAY</span>
+            <span class="scan-count" id="scan-count">PULSE 00</span>
+          </div>
+          <div class="scanner-screen">
+            <canvas id="radar" aria-hidden="true"></canvas>
+            <span class="scanner-corner top-left"></span><span class="scanner-corner top-right"></span>
+            <span class="scanner-corner bottom-left"></span><span class="scanner-corner bottom-right"></span>
+          </div>
+          <div class="scanner-bottom">
+            <span id="scan-status" role="status" aria-live="polite">Awaiting pulse</span>
+            <span>SIMULATION</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section download-section reveal" id="download" aria-labelledby="download-title">
+      <div class="download-card">
+        <div class="download-grid" aria-hidden="true"></div>
+        <div class="download-orbit" aria-hidden="true"></div>
+        <div class="download-copy">
+          <p class="eyebrow"><span class="rule"></span> META QUEST RELEASE</p>
+          <h2 id="download-title">ENTER THE <em>BACKROOMS.</em></h2>
+          <p>Get the standalone Quest APK on itch.io, then use a room code to meet up with friends.</p>
+          <a class="button button-primary" href="https://sxenolith-del.itch.io/blind-hunt-vr2">Get Blind Hunt VR <span aria-hidden="true">↗</span></a>
+          <small>Game contains graphic violence.</small>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="shell footer-inner">
+      <a class="brand" href="#top" aria-label="Blind Hunt VR home">
+        <span class="brand-mark" aria-hidden="true"><i></i></span>
+        <span>BLIND HUNT<span class="brand-vr">VR</span></span>
+      </a>
+      <a class="back-top" href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+</body>
+</html>
